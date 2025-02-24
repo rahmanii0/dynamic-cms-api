@@ -1,0 +1,11 @@
+{
+    "name": "EntityRecordValues",
+    "alias": "entityrecordvalues",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\EntityRecordValues\\Providers\\EntityRecordValuesServiceProvider"
+    ],
+    "files": []
+}

@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/customattributes",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CustomAttributes\\": "app/",
+            "Modules\\CustomAttributes\\Database\\Factories\\": "database/factories/",
+            "Modules\\CustomAttributes\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\CustomAttributes\\Tests\\": "tests/"
+        }
+    }
+}

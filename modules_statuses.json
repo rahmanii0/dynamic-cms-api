@@ -1,0 +1,12 @@
+{
+    "Admin": true,
+    "Operator": true,
+    "Entity": true,
+    "CustomAttributes": true,
+    "Records": true,
+    "Controller": true,
+    "AdminController": true,
+    "EntityRecords": true,
+    "Model": true,
+    "EntityRecordValues": true
+}

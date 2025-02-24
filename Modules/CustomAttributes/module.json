@@ -1,0 +1,11 @@
+{
+    "name": "CustomAttributes",
+    "alias": "customattributes",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CustomAttributes\\Providers\\CustomAttributesServiceProvider"
+    ],
+    "files": []
+}
