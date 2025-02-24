@@ -1,4 +1,4 @@
-### this Api written by Abd-Elrahman Mohamed 
+### written by Abd-Elrahman Mohamed 
 
 # Laravel API Configuration Guide  
 
