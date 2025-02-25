@@ -28,7 +28,13 @@ This guide provides a complete setup for this Laravel API using Docker, JWT auth
 ### ERD :
 <img width="1393" alt="Screenshot 2025-02-25 at 12 51 57 AM" src="https://github.com/user-attachments/assets/9a46aaac-6268-41a6-bf42-9ad56d93854d" />
 
+<img width="1103" alt="admins, operators , entities" src="https://github.com/user-attachments/assets/09c8c0a0-04c3-4463-b6dd-67b96872fe80" />
 
+<img width="1055" alt="customattrinutes , entityrecord" src="https://github.com/user-attachments/assets/e0994c9f-5b59-4ccc-816a-13b6eeaeaf7f" />
+
+<img width="1013" alt="entityrecordvalue" src="https://github.com/user-attachments/assets/83b06a7e-84e1-490a-a22b-ab3e7917abe2" />
+
+___
 ## Setting Up the API : 
 
   ### 1- Set it up Locally : 
