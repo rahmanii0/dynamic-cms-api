@@ -8,4 +8,5 @@ interface EntityRecordRepositoryInterface
     public function getAllRecordsByEntity(int $entityId);
     public function getAllRecords();
     public function getRecordById(int $recordId);
+    public function getCachedCustomAttributes($entityId);
 }

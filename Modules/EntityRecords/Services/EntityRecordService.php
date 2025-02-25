@@ -34,4 +34,8 @@ class EntityRecordService extends BaseService implements EntityRepositoryInterfa
     {
         return $this->entityRecordRepository->getRecordById($recordId);
     }
+    public function getCachedCustomAttributes($entityId)
+    {
+        return $this->entityRecordRepository->getCachedCustomAttributes($entityId);
+    }
 }

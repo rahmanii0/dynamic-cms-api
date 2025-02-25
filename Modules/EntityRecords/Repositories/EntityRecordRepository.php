@@ -4,19 +4,23 @@
 namespace Modules\EntityRecords\Repositories;
 
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\Cache;
+use Modules\CustomAttributes\Models\CustomAttributes;
 use Modules\EntityRecords\Models\EntityRecord;
-use Modules\EntityRecords\Repositories\Interfaces\EntityRecordRepositoryInterface;
 use Modules\EntityRecordValues\Models\EntityRecordValue;
+use Modules\EntityRecords\Repositories\Interfaces\EntityRecordRepositoryInterface;
 
 class EntityRecordRepository extends BaseRepository implements EntityRecordRepositoryInterface
 {   
     protected $entityRecord;
     protected $entityRecordValue;
-    public function __construct(EntityRecord $entityRecord , EntityRecordValue $entityRecordValue)
+    protected $customAttributes;
+    public function __construct(EntityRecord $entityRecord , EntityRecordValue $entityRecordValue, CustomAttributes $customAttributes)
     {
         parent::__construct($entityRecord);
         $this->entityRecord = $entityRecord;
         $this->entityRecordValue = $entityRecordValue;
+        $this->customAttributes= $customAttributes;
 
         
     }
@@ -34,6 +38,8 @@ class EntityRecordRepository extends BaseRepository implements EntityRecordRepos
                 'value' => $value,
             ]);
         }
+        Cache::forget("entity_attributes_{$data['entity_id']}");
+
         return $record->load('values');
     }
 
@@ -50,4 +56,10 @@ class EntityRecordRepository extends BaseRepository implements EntityRecordRepos
     {
         return $this->entityRecord->with('values')->findOrFail($recordId);
     }
+    public function getCachedCustomAttributes($entityId)
+    {
+        return Cache::rememberForever("entity_attributes_{$entityId}", function () use ($entityId) {
+            return $this->customAttributes->where('entity_id', $entityId)->get();
+    });
+}
 }

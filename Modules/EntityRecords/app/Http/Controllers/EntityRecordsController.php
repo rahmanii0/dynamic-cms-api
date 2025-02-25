@@ -38,4 +38,9 @@ class EntityRecordsController extends Controller
         return response()->json(['data' => $record], 200);
 
     }
+    public function getCachedAttributes($entityId)
+    {
+        $cached= $this->entityRecordService->getCachedCustomAttributes($entityId);
+        return response()->json(['data'=>$cached],200);
+    }
 }
