@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('entity_record_values', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('entity_record_id')->constrained()->onDelete('cascade');
-            $table->foreignId('custom_attribute_id')->constrained()->onDelete('cascade');
+            $table->foreignId('entity_record_id')->constrained('entity_records')->onDelete('cascade');
+            $table->foreignId('custom_attribute_id')->constrained('custom_attributes')->onDelete('cascade');
             $table->string('value');
             $table->timestamps();
         });

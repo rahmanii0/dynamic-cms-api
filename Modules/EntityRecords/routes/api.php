@@ -14,6 +14,3 @@ use Modules\EntityRecords\Http\Controllers\EntityRecordsController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('entityrecords', EntityRecordsController::class)->names('entityrecords');
-});

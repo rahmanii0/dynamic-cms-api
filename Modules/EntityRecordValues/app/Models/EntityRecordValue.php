@@ -15,7 +15,7 @@ class EntityRecordValue extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [];
+    protected $fillable = ['entity_record_id', 'custom_attribute_id', 'value'];
 
     public function record()
     {

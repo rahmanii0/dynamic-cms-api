@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('entity_records', function (Blueprint $table) {
             $table->id();
             $table->foreignId('entity_id')->constrained('entities')->onDelete('cascade');
-            $table->json('data')->nullable();
             $table->foreignId('operator_id')->constrained('operators')->onDelete('cascade');
+            $table->json('attributes')->nullable();
             $table->timestamps();
             
         });

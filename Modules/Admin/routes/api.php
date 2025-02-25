@@ -46,6 +46,8 @@ Route::middleware(['auth:admin'])->group(function () {
     //Api Endpoint that make Admin can assign custom attribute to an entity
     Route::post('/admin/assign/custom/attribute', [AdminController::class, 'assignCustomAttributeToEntity']);
 
+    Route::post('/admin/logout', [AdminAuthController::class, 'logout']);
+
 });
 
 
@@ -53,4 +55,3 @@ Route::middleware(['auth:admin'])->group(function () {
 
 Route::post('/admin/register', [AdminAuthController::class, 'registerAdmin']);
 Route::post('/admin/login', [AdminAuthController::class, 'loginAdmin']);
-Route::post('/admin/logout', [AdminAuthController::class, 'logout']);

@@ -11,10 +11,12 @@ use Modules\EntityRecordValues\Models\EntityRecordValue;
 class EntityRecord extends Model
 {
     use HasFactory;
-    protected $fillable = ['entity_id', 'operator_id', 'data'];
-
+    protected $fillable = [
+        'entity_id',
+        'operator_id'
+    ];
     protected $casts = [
-        'data' => 'array',
+        'attributes' => 'array',
     ];
 
     public function entity()

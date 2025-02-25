@@ -2,64 +2,40 @@
 
 namespace Modules\EntityRecords\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Modules\EntityRecords\Services\EntityRecordService;
 
 class EntityRecordsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    protected $entityRecordService;
+
+    public function __construct(EntityRecordService $entityRecordService)
     {
-        return view('entityrecords::index');
+        $this->entityRecordService = $entityRecordService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function createEntityRecord(Request $request)
     {
-        return view('entityrecords::create');
+        $record = $this->entityRecordService->createEntityRecord($request->all());
+        return response()->json(['message' => 'Record created successfully', 'data' => $record], 201);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function getAllRecordsByEntity($entity_id){
+        return $this->entityRecordService->getAllRecordsByEntity($entity_id);
+        return response()->json(['data' => $record], 200);
+
     }
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
+    public function getAllRecords()
     {
-        return view('entityrecords::show');
+        return $this->entityRecordService->getAllRecords();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+    public function getRecordById($record_id)
     {
-        return view('entityrecords::edit');
-    }
+        $record=$this->entityRecordService->getRecordById($record_id);
+        return response()->json(['data' => $record], 200);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

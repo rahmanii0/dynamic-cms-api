@@ -2,11 +2,12 @@
 
 namespace Modules\EntityRecords\Providers;
 
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Nwidart\Modules\Traits\PathNamespace;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use Modules\EntityRecords\Providers\RepositoryServiceProvider;
 
 class EntityRecordsServiceProvider extends ServiceProvider
 {
@@ -36,6 +37,7 @@ class EntityRecordsServiceProvider extends ServiceProvider
     {
         $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(RepositoryServiceProvider::class);
     }
 
     /**
