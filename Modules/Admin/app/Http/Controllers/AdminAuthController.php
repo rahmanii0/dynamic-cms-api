@@ -12,6 +12,18 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 class AdminAuthController extends Controller
 
 {
+
+    /**
+     * Admin Register
+     * 
+     * Authinticate the Admin and return the admin's token
+     * 
+     * @unuthenticated
+     * @group Authentication
+     * @response status=201 scenario=success "message":"Admin registerd successfully","admin":Admin,"token":token
+     * @response status=401 scenario="Unauthorized" "error":"Unauthorized"
+     */ 
+
     public function registerAdmin(AdminRequest $request)
     {
               $admin = Admin::create([
@@ -29,6 +41,16 @@ class AdminAuthController extends Controller
         ], 201);
     }
 
+    /**
+     * Admin Login
+     * 
+     * Authinticate the Admin and return the admin's token
+     * 
+     * @unuthenticated
+     * @group Authentication
+     * @response status=200 scenario=success "message":"Admin logedin successfully","admin":Admin,"token":token
+     */ 
+
     public function loginAdmin(AdminLoginRequest $request)
     {
         $credentials = $request->only('user_name', 'password',);
@@ -43,7 +65,13 @@ class AdminAuthController extends Controller
     }
 
 
-
+    /**
+     * Admin Logout
+     * 
+    * signout the Admin and destroy the token 
+     * @group Authentication
+     * @response status=200 scenario=success "message":"Admin Successfully logged out"
+     */ 
 
     public function logout()
     {

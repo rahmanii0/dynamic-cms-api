@@ -1,0 +1,184 @@
+name: Authentication
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/admin/register
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Admin Register'
+      description: "Authinticate the Admin and return the admin's token"
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_name:
+        name: user_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must match the regex /[a-z]/. Must match the regex /[A-Z]/. Must match the regex /[0-9]/. Must match the regex /[@$!%*#?&]/. Must be at least 8 characters.'
+        required: true
+        example: '-0pBNvYgxw'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_name: b
+      email: zbailey@example.net
+      password: '-0pBNvYgxw'
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '"message":"Admin registerd successfully","admin":Admin,"token":token'
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 401
+        content: '"error":"Unauthorized"'
+        headers: []
+        description: Unauthorized
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzQwNDQxMDk4LCJleHAiOjE3NDA0NDQ2OTgsIm5iZiI6MTc0MDQ0MTA5OCwianRpIjoiYVdOd1N5N1pRQkE4YkNoaCIsInN1YiI6IjIiLCJwcnYiOiI5YWM0NDJkMjJiYTliNDkwOTcwNDA4ZTYwNWVhYjgwYzE5MTVhMmU4In0.yzpoW-P339ygYYQWVkiTmPhdKVazRbVlrMYbkZe-2TI'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/admin/login
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Admin Login'
+      description: "Authinticate the Admin and return the admin's token"
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_name:
+        name: user_name
+        description: 'The <code>user_name</code> of an existing record in the admins table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: '|]|{+-'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_name: architecto
+      password: '|]|{+-'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '"message":"Admin logedin successfully","admin":Admin,"token":token'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzQwNDQxMDk4LCJleHAiOjE3NDA0NDQ2OTgsIm5iZiI6MTc0MDQ0MTA5OCwianRpIjoiYVdOd1N5N1pRQkE4YkNoaCIsInN1YiI6IjIiLCJwcnYiOiI5YWM0NDJkMjJiYTliNDkwOTcwNDA4ZTYwNWVhYjgwYzE5MTVhMmU4In0.yzpoW-P339ygYYQWVkiTmPhdKVazRbVlrMYbkZe-2TI'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/admin/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Admin Logout'
+      description: 'signout the Admin and destroy the token'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '"message":"Admin Successfully logged out"'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzQwNDQxMDk4LCJleHAiOjE3NDA0NDQ2OTgsIm5iZiI6MTc0MDQ0MTA5OCwianRpIjoiYVdOd1N5N1pRQkE4YkNoaCIsInN1YiI6IjIiLCJwcnYiOiI5YWM0NDJkMjJiYTliNDkwOTcwNDA4ZTYwNWVhYjgwYzE5MTVhMmU4In0.yzpoW-P339ygYYQWVkiTmPhdKVazRbVlrMYbkZe-2TI'
+    controller: null
+    method: null
+    route: null
+    custom: []

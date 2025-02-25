@@ -2,6 +2,8 @@
 
 # Laravel API Configuration Guide  
 
+#### You gonna find Api Docs here : localhost:8000/docs
+
 This guide provides a complete setup for this Laravel API using Docker, JWT authentication, and the Service-Repository pattern.  
 
 ---
