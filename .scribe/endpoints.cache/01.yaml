@@ -6,6 +6,46 @@ endpoints:
   -
     httpMethods:
       - POST
+    uri: api/admin/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Admin Logout'
+      description: 'signout the Admin and destroy the token'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '"message":"Admin Successfully logged out"'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzQwNDQxMDk4LCJleHAiOjE3NDA0NDQ2OTgsIm5iZiI6MTc0MDQ0MTA5OCwianRpIjoiYVdOd1N5N1pRQkE4YkNoaCIsInN1YiI6IjIiLCJwcnYiOiI5YWM0NDJkMjJiYTliNDkwOTcwNDA4ZTYwNWVhYjgwYzE5MTVhMmU4In0.yzpoW-P339ygYYQWVkiTmPhdKVazRbVlrMYbkZe-2TI'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
     uri: api/admin/register
     metadata:
       groupName: Authentication
@@ -132,46 +172,6 @@ endpoints:
       -
         status: 200
         content: '"message":"Admin logedin successfully","admin":Admin,"token":token'
-        headers: []
-        description: success
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzQwNDQxMDk4LCJleHAiOjE3NDA0NDQ2OTgsIm5iZiI6MTc0MDQ0MTA5OCwianRpIjoiYVdOd1N5N1pRQkE4YkNoaCIsInN1YiI6IjIiLCJwcnYiOiI5YWM0NDJkMjJiYTliNDkwOTcwNDA4ZTYwNWVhYjgwYzE5MTVhMmU4In0.yzpoW-P339ygYYQWVkiTmPhdKVazRbVlrMYbkZe-2TI'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/admin/logout
-    metadata:
-      groupName: Authentication
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Admin Logout'
-      description: 'signout the Admin and destroy the token'
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '"message":"Admin Successfully logged out"'
         headers: []
         description: success
         custom: []

@@ -49,9 +49,9 @@ class AdminController extends Controller
     }
 
     // Admins controlling entities
-    public function getAllEntities()
+    public function getAllEntities($perPage =10)
     {
-        return response()->json($this->adminService->getAllEntities());
+        return response()->json($this->adminService->getAllEntities($perPage));
     }
 
     public function getEntityById($id)
